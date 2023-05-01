@@ -5,4 +5,9 @@
      yum: 
       name: httpd
       state: present
+   - name: start & enable
+     service: 
+      name: httpd
+      state: started
+      enable: True   
       
