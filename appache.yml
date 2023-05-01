@@ -13,5 +13,14 @@
    - name: put html file on the server
      copy:
       src: index.html
-      dest: /var/www/html/    
+      dest: /var/www/html/
+   - name: change apache port 
+     lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^Listen' 
+      line: 'Listen 8080'
+   - name: restart apache server
+     service: 
+      name: httpd 
+      state: restarted          
       
